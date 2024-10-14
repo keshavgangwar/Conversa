@@ -1,44 +1,42 @@
-require("dotenvconfig").config();
-const express = require ("express");
+require("dotenv").config();
+const express = require("express");
 const cors = require("cors");
 const app = express();
 const connection = require("./db/db.js");
-const userRoute = require("./routes/user Route.js");
-const avatarRoute = require("./routes/user Route.js");
-const cookieParser = require('cookie-parser');
+const userRoute = require("./routes/userRoute.js");
+const avatarRoute = require("./routes/userRoute.js");
+const cookieParser = require("cookie-parser");
 const createWebSocketServer = require("./WsServer.js");
 const path = require("path");
 
 //database connection
 connection();
-app.use(express.json())
-app.use(cookieParser())
+app.use(express.json());
+app.use(cookieParser());
 //middlewares
 app.use(express.json());
-const allowedorigins = [
-"http://localhost:5173",
-"http://localhost:4000",
-"https://swifty-chatty-appy.onrender.com"
+const allowedOrigins = [
+  "http://localhost:5173",
+  "http://localhost:4000",
+  "https://swifty-chatty-appy.onrender.com",
 ];
-const corsoptions = {
-origin: (origin, callback) => {
-if (allowedOrigins. includes (origin) || !origin) { 
-  callback(null, true);
-  }
-else {
-callback(new Error("Not allowed by CORS"));
-     }
-},
-methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
-optionsSuccessStatus: 204,
-credentials: true, // Allow credentials like cookies
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  methods: "GET, HEAD, PUT, PATCH, POST, DELETE",
+  optionsSuccessStatus: 204,
+  credentials: true, // Allow credentials like cookies
 };
-app.use(cors (corsoptions));
-app.use("/api/user", user Route);
+app.use(cors(corsOptions));
+app.use("/api/user", userRoute);
 app.use("/api/avatar", avatarRoute);
 const port = process.env.PORT || 8000;
-const server =
-app.listen(port, () => console.log( `Application is Running `);
+const server = app.listen(port, () => console.log(`Application is Running`));
 createWebSocketServer(server);
 app.use(express.static(path.join(__dirname, "..", "frontend", "dist")));
 
@@ -49,5 +47,3 @@ app.use(express.static(path.join(__dirname, "..", "frontend", "dist")));
 //     }
 //   });
 // });
-
-
