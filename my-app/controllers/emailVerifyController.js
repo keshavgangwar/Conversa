@@ -1,42 +1,31 @@
 // emailVerificationController.js
 
-const { User } = require("../models/userModel.js");
-const { Token } = require("../models/tokenModel.js");
-
-const verifyEmail = async (req, res) => {
-  // emailVerificationController.js
-
-const { User } = require("../models/userModel.js");
-const { Token } = require("../models/tokenModel.js");
+const { User } = require("../models/userModel");
+const { Token } = require("../models/tokenModel");
 
 const verifyEmail = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-
     if (!user) {
       return res.status(400).send({ message: "User doesn't exist" });
     }
-
     if (user.verified) {
       return res.status(400).send({ message: "Email already verified" });
     }
-
     // Find the token for the user
     const token = await Token.findOne({
       userId: user._id,
       token: req.params.token,
     });
 
- if (!token) {
+    if (!token) {
       return res.status(400).send({ message: "Invalid Link" });
     }
-
     if (token.expiresAt < Date.now()) {
       user.verificationLinkSent = false;
       await user.save();
       return res.status(400).send({ message: "Verification link expired" });
     }
-
     user.verified = true;
     await user.save();
 
@@ -47,4 +36,4 @@ const verifyEmail = async (req, res) => {
   }
 };
 
-  module.exports = verifyEmail;
+module.exports = verifyEmail;

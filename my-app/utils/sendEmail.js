@@ -1,7 +1,5 @@
 // sendEmail.js
-
 const nodemailer = require("nodemailer");
-
 module.exports = async (email, subject, text) => {
   try {
     const transporter = nodemailer.createTransport({
@@ -13,15 +11,6 @@ module.exports = async (email, subject, text) => {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-    });
-// sendEmail.js
-
-const nodemailer = require("nodemailer");
-
-module.exports = async (email, subject, text) => {
-  try {
-    const transporter = nodemailer.createTransport({
-      // ... (transporter configuration)
     });
 
     await transporter.sendMail({

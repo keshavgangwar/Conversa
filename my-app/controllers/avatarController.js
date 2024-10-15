@@ -2,19 +2,21 @@
 const Avatar = require("../models/avatars");
 
 async function avatarController(req, res) {
-    const { link } = req.body;
+  const { link } = req.body;
 
-    // Check if the link is provided
-    if (!link) {
-        return res.status(400).json({ error: "Link is required" });
-    }
+  // Check if the link is provided
+  if (!link) {
+    return res.status(400).json({ error: "Link is required" });
+  }
 
-    try {
-        // Create a new avatar entry in the database
-        const newAvatar = new Avatar({ link });
-        await newAvatar.save();
-       // Return success response
-    return res.status(201).json({ success: true, message: "Avatar link added successfully" });
+  try {
+    // Create a new avatar entry in the database
+    const newAvatar = new Avatar({ link });
+    await newAvatar.save();
+    // Return success response
+    return res
+      .status(201)
+      .json({ success: true, message: "Avatar link added successfully" });
   } catch (error) {
     // Handle any errors that occur during the process
     console.error(error);
@@ -22,8 +24,7 @@ async function avatarController(req, res) {
   }
 }
 
-async function   
- getAllAvatars(req, res) {
+async function getAllAvatars(req, res) {
   try {
     // Fetch all avatars from the database
     const avatars = await Avatar.find();
@@ -32,9 +33,7 @@ async function  
   } catch (error) {
     // Handle any errors that occur during the process
     console.error(error);
-     
-return res.status(500).json({ error: "Internal Server Error"   
- });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
- }
- module.exports = {avatarController,getAllAvatars};
+}
+module.exports = { avatarController, getAllAvatars };

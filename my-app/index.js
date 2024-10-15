@@ -4,9 +4,9 @@ const cors = require("cors");
 const app = express();
 const connection = require("./db/db.js");
 const userRoute = require("./routes/userRoute.js");
-const avatarRoute = require("./routes/userRoute.js");
+const avatarRoute = require("./routes/avatarRoute.js");
 const cookieParser = require("cookie-parser");
-const createWebSocketServer = require("./WsServer.js");
+const createWebSocketServer = require("./WSServer.js");
 const path = require("path");
 
 //database connection
@@ -40,10 +40,10 @@ const server = app.listen(port, () => console.log(`Application is Running`));
 createWebSocketServer(server);
 app.use(express.static(path.join(__dirname, "..", "frontend", "dist")));
 
-// app.get('/*', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../frontend/dist/index.html'), (err) => {
-//     if (err) {
-//       console.error('Error sending file:', err);
-//     }
-//   });
-// });
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"), (err) => {
+    if (err) {
+      console.error("Error sending file:", err);
+    }
+  });
+});

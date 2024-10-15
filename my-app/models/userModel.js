@@ -30,7 +30,7 @@ userSchema.methods.generateAuthToken = function () {
   return token;
 };
 
-const User = mongoose.model("User", userSchema);
+const User = mongoose.model("user", userSchema);
 
 const validateRegister = (data) => {
   const schema = Joi.object({
@@ -45,7 +45,7 @@ const validateRegister = (data) => {
 const validateLogin = (data) => {
   const schema = Joi.object({
     email: Joi.string().email().required().label("Email"),
-    password: Joi.string().required().label("Password"),
+    password: passwordComplexity().required().label("Password"),
   });
   return schema.validate(data);
 };
