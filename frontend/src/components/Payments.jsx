@@ -9,8 +9,8 @@ const Payments = () => {
             Designed for business teams like yours
           </h2>
           <p className="mb-5 font-light sm:text-xl text-gray-400">
-            Here at Swift, we focus on markets where technology and capital can
-            unlock long-term value and drive ecosystem.
+            Here at Conversa, we focus on markets where technology and capital
+            can unlock long-term value and drive ecosystem.
           </p>
         </div>
 
@@ -21,10 +21,14 @@ const Payments = () => {
             <p className="font-light sm:text-lg text-gray-400">
               Best option for personal use & your next project.
             </p>
+            <div className="flex justify-center items-baseline mb-4">
+              <span className="mr-2 text-5xl font-extrabold">$29</span>
+              <span className="text-gray-400">/month</span>
+            </div>
             <ul role="list" className="mb-8 space-y-4 text-left">
               <li className="flex items-center space-x-3">
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-green-500"
+                  className="flex-shrink-0 w-5 h-5 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -33,13 +37,13 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>Individual configuration</span>
               </li>
               <li className="flex items-center space-x-3">
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-green-500"
+                  className="flex-shrink-0 w-5 h-5 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -48,13 +52,13 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>No setup, or hidden fees</span>
               </li>
               <li className="flex items-center space-x-3">
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-green-500"
+                  className="flex-shrink-0 w-5 h-5 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -63,16 +67,15 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>
-                  Team size:{" "}
-                  <span className="font-semibold">1 developer</span>
+                  Team size: <span className="font-semibold">1 developer</span>
                 </span>
               </li>
               <li className="flex items-center space-x-3">
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-green-500"
+                  className="flex-shrink-0 w-5 h-5 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -99,11 +102,28 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>
-                  Free updates:{" "}
+                  Premium support:
                   <span className="font-semibold">6 months</span>
+                </span>
+              </li>
+              <li className="flex items-center space-x-3">
+                <svg
+                  className="flex-shrink-0 w-5 h-5 text-green-500"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M16.707 5.293a1 1 0 0 1 0 1.414l-8 8a1 1 0 0 1-1.414 0l-4-4a1 1 0 1 1 1.414-1.414L8 11.586l7.293-7.293a1 1 0 0 1 1.414 0z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span>
+                  Free updates: <span className="font-semibold">6 months</span>
                 </span>
               </li>
             </ul>
@@ -137,13 +157,13 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>Individual configuration</span>
               </li>
               <li className="flex items-center space-x-3">
                 <svg
-                  className="flex-shrink-0 w-5 h-5 text-green-500"
+                  className="flex-shrink-0 w-5 h-5 text-green-400"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                   xmlns="http://www.w3.org/2000/svg"
@@ -152,7 +172,7 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>No setup, or hidden fees</span>
               </li>
@@ -167,7 +187,7 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>
                   Team size:{" "}
@@ -185,7 +205,7 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>
                   Premium support:{" "}
@@ -203,11 +223,10 @@ const Payments = () => {
                     fillRule="evenodd"
                     d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L10 10.586l6.293-6.293z"
                     clipRule="evenodd"
-                  />
+                  ></path>
                 </svg>
                 <span>
-                  Free updates:{" "}
-                  <span className="font-semibold">24 months</span>
+                  Free updates: <span className="font-semibold">24 months</span>
                 </span>
               </li>
             </ul>

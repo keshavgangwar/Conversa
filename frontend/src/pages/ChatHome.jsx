@@ -1,11 +1,11 @@
 // ChatHome.jsx
 import React, { useEffect, useState } from "react";
+import OnlineUsersList from "../components/Chat/OnlineUserList";
 import { useProfile } from "../context/profileContext";
 import axios from "axios";
 import ChatMessages from "../components/Chat/ChatMessages";
 import MessageInputForm from "../components/Chat/MessageInputForm";
 import Nav from "../components/Chat/Nav";
-import OnlineUsersList from "../components/Chat/OnlineUsersList";
 import TopBar from "../components/Chat/TopBar";
 import { socketUrl } from "../../apiConfig";
 import { useAuth } from "../context/authContext";
@@ -73,7 +73,7 @@ const ChatHome = () => {
     const handleRealTimeMessage = (event) => {
       const messageData = JSON.parse(event.data);
       if ("text" in messageData) {
-        setMessages((prev) => [...prev, messageData]);
+        setMessages((prev) => [...prev, { messageData }]);
       }
     };
 
@@ -91,7 +91,7 @@ const ChatHome = () => {
   const showOnlinePeople = (peopleArray) => {
     const people = {};
     peopleArray.forEach(({ userId, username, avatarLink }) => {
-      if (userId !== userDetails?.id) {
+      if (userId !== userDetails?._id) {
         people[userId] = { username, avatarLink };
       }
     });
@@ -104,7 +104,7 @@ const ChatHome = () => {
       showOnlinePeople(messageData.online);
     } else if ("text" in messageData) {
       if (messageData.sender === selectedUserId) {
-        setMessages((prev) => [...prev,{ ...messageData} ]);
+        setMessages((prev) => [...prev, { ...messageData }]);
       }
     }
   };
@@ -131,20 +131,20 @@ const ChatHome = () => {
     ]);
   };
 
-    useEffect(() => {
-        const fetchData = async () => {
-          if (selectedUserId) {
-            try {
-              const res = await axios.get(`/api/user/messages/${selectedUserId}`);
-              setMessages(res.data);
-            } catch (error) {
-              console.error("Error fetching messages:", error);
-            }
-          }
-        };
-        fetchData();
-    }, [selectedUserId]);
-    useEffect(() => {
+  useEffect(() => {
+    const fetchData = async () => {
+      if (selectedUserId) {
+        try {
+          const res = await axios.get(`/api/user/messages/${selectedUserId}`);
+          setMessages(res.data);
+        } catch (error) {
+          console.error("Error fetching messages:", error);
+        }
+      }
+    };
+    fetchData();
+  }, [selectedUserId]);
+  useEffect(() => {
     checkAuth();
     if (!isAuthenticated) {
       navigate("/");

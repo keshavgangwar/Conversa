@@ -14,7 +14,7 @@ const ChatMessages = ({ messages, userDetails, selectedUserId }) => {
         behavior: "smooth",
       });
     }
-  }, [messages,messagesContainerRef]);
+  }, [messages, messagesContainerRef]);
   return (
     <div
       className="absolute bottom-24 w-full px-7 lg:px-20 left-1"
@@ -27,12 +27,12 @@ const ChatMessages = ({ messages, userDetails, selectedUserId }) => {
               key={message._id}
               className={`text-white ${
                 message.sender !== userDetails._id
-                  ? 'bg-primary self-start rounded-r-2xl'
-                  : 'bg-primarySecond self-end rounded-l-2xl'
+                  ? "bg-primary self-start rounded-r-2xl"
+                  : "bg-primarySecond self-end rounded-l-2xl"
               } relative group rounded-b-2xl px-5 py-3`}
             >
               <div
-                style={{ wordWrap: 'break-word' }}
+                style={{ wordWrap: "breakWord" }}
                 className="flex flex-wrap max-w-[500px] overflow-hidden"
               >
                 {message.text}
@@ -40,21 +40,21 @@ const ChatMessages = ({ messages, userDetails, selectedUserId }) => {
               <div
                 className={`absolute top-0 w-0 h-0 ${
                   message.sender !== userDetails._id
-                    ? 'border-r-primary-left-4 border-r-[20px]'
-                    : 'rounded-l-lg -right-4 border-l-primary-left-4 border-l-[20px]'
+                    ? "border-r-primary -left-4 border-r-[20px]"
+                    : "rounded-l-lg -right-4 border-l-primarySecond border-l-[20px]"
                 } border-b-[20px] border-b-transparent`}
-                ></div>
-                </div>
+              ></div>
+            </div>
           ))}
-          </div>
+        </div>
       )}
-      {selectedUserId && !messages.length &&(
+      {selectedUserId && !messages.length && (
         <div className="text-gray-500 flex items-end justify-center">
-        Start a conversation
-      </div>
-    )}
-  </div>
-);
+          Start a conversation
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default ChatMessages;

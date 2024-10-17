@@ -9,15 +9,15 @@ import CustomerLogos from "../components/CustomerLogos";
 const Home = () => {
   const { isAuthenticated } = useAuth();
   return (
-    <div className="bg-dark">
-        <LandingNav/>
-        <Hero/>
-        <Features/>
-        <Payments/>
-        <CustomerLogos/>
-        <Footer/>
+    <div className="bg-light">
+      <LandingNav />
+      <Hero />
+      <Features />
+      <Payments />
+      <CustomerLogos />
+      <Footer />
     </div>
-    );
-    };
-  
-    export default Home;
+  );
+};
+
+export default Home;

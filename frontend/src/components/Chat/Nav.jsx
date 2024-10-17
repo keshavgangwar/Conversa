@@ -40,18 +40,21 @@ const Nav = () => {
           <Link
             to="/"
             className="flex gap-2 items-center justify-center bg-gray-200 p-4 rounded-lg shadow-lg"
-            >
+          >
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8"
-              alt="Swift Logo"
+              alt="Conversa"
             />
-            <span className="font-semibold text-xl mr-2">Swift</span>
+            <span className="font-semibold text-xl mr-2">Conversa</span>
           </Link>
           <nav className="h-full flex flex-col my-4 justify-between bg-white px-4 py-6 rounded-md shadow-md">
-          <div className="flex flex-col gap-5">
-          <Link to="/profile" className="flex items-center gap-1 text-gray-700 hover:text-blue-500 transition-colors duration-300">
-          <svg
+            <div className="flex flex-col gap-5">
+              <Link
+                to="/profile"
+                className="flex items-center gap-1 text-gray-700 hover:text-blue-500 transition-colors duration-300"
+              >
+                <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -63,7 +66,7 @@ const Nav = () => {
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     d="M15.75 6a3.75 3.75 0 1 1 -7.5 0 3.75 3.75 0 0 1 7.5 0"
-                    />
+                  />
                 </svg>
                 <span>Profile</span>
               </Link>
@@ -85,7 +88,11 @@ const Nav = () => {
                 <span>Chats</span>
               </Link>
             </div>
-            <Link className="flex items-center gap-1 mb-14" to="#" onClick={logout}>
+            <Link
+              className="flex items-center gap-1 mb-14"
+              to="#"
+              onClick={logout}
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -100,7 +107,7 @@ const Nav = () => {
                   d="M8.25 9V5.25A2.25 2.25 0 0 1 10.5 3h6a2.25 2.25 0 0 1 2.25 2.25V9"
                 />
               </svg>
-              <button>Logout</button>
+              <button onClick={logout}>Logout</button>
             </Link>
           </nav>
         </header>

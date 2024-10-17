@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Avatar from "./Avatar";
 import Contact from "./Contact";
+import ChatHome from "../../pages/ChatHome";
 
 const OnlineUserList = ({
   onlinePeople,
@@ -25,58 +26,61 @@ const OnlineUserList = ({
     <section className="w-[29%] py-3 border-r px-2 lg:px-4 border-l-gray-300">
       <div className="text-white flex items-center gap-2 p-1 px-3 border-b border-gray-300">
         <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="currentColor"
-        className="w-6 h-6 hidden sm:block"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          strokeWidth={1.5}
+          stroke="currentColor"
+          className="w-6 h-6 hidden sm:block"
         >
-            <path
+          <path
             strokeLinecap="round"
             strokeLinejoin="round"
-        d=" 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196"></path>
+            d=" 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196"
+          />
         </svg>
-        <input type="text"
-         placeholder="Search..." 
-         value={searchTerm} 
-         onChange={(e) => setSearchTerm(e.target.value)} 
-         className="w-full bg-transparent outline-none" 
-         />
+        <input
+          type="text"
+          placeholder="Search..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="w-full bg-transparent outline-none"
+        />
       </div>
       <div className="max-h-[85vh] overflow-auto no-scrollbar">
-    {filteredOnlinePeople.map((userId) => {
-      const { username, avatarLink } = onlinePeople[userId];
-      console.log(userId); // For debugging purposes
-      return (
-        <Contact
-          key={userId}
-          userId={userId}
-          username={username}
-          selectedUserId={selectedUserId}
-          setSelectedUserId={setSelectedUserId}
-          isOnline={true}
-          avatarLink={avatarLink} // Include avatarLink for
-        />
-      );
-    })}
-      
-      {filteredOfflinePeople.map((userId) => {
-      const { _id, firstName, lastName, avatarLink } = offlinePeople[userId];
-      return (
-        <Contact
-          key={_id}
-          userId={_id}
-          username={`${firstName} ${lastName}`}
-          selectedUserId={selectedUserId}
-          setSelectedUserId={setSelectedUserId}
-          isOnline={false}
-          avatarLink={avatarLink}
-        />
-      );
-    })}
-  </div>
-      </section>
-);
+        {filteredOnlinePeople.map((userId) => {
+          const { username, avatarLink } = onlinePeople[userId];
+          console.log(userId); // For debugging purposes
+          return (
+            <Contact
+              key={userId}
+              userId={userId}
+              username={username}
+              selectedUserId={selectedUserId}
+              setSelectedUserId={setSelectedUserId}
+              isOnline={true}
+              avatarLink={avatarLink} // Include avatarLink for
+            />
+          );
+        })}
+
+        {filteredOfflinePeople.map((userId) => {
+          const { _id, firstName, lastName, avatarLink } =
+            offlinePeople[userId];
+          return (
+            <Contact
+              key={_id}
+              userId={_id}
+              username={`${firstName} ${lastName}`}
+              selectedUserId={selectedUserId}
+              setSelectedUserId={setSelectedUserId}
+              isOnline={false}
+              avatarLink={avatarLink}
+            />
+          );
+        })}
+      </div>
+    </section>
+  );
 };
-export default OnlineUsersList;
+export default OnlineUserList;

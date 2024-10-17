@@ -5,9 +5,8 @@ import React, { createContext, useContext, useState } from "react";
 const AuthContext = createContext();
 
 // AuthProvider component
-const AuthProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   const setAuthenticated = (value) => {
     setIsAuthenticated(value);
   };
@@ -16,7 +15,6 @@ const AuthProvider = ({ children }) => {
     const token = Cookies.get("authToken");
     console.log("Checking authentication...");
     if (token) {
-
       console.log("Token exists. Setting authenticated to true.");
       setAuthenticated(true);
       console.log(isAuthenticated);
@@ -28,12 +26,14 @@ const AuthProvider = ({ children }) => {
 
   const logout = () => {
     console.log("Logging out...");
-    setAuthenticated(false);
-    Cookies.remove("authToken");  // Optionally remove the token if you want to log out
+    Cookies.remove("authToken");
+    setAuthenticated(false); // Optionally remove the token if you want to log out
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setAuthenticated, checkAuth, logout }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, setAuthenticated, checkAuth, logout }}
+    >
       {children}
     </AuthContext.Provider>
   );
@@ -43,4 +43,3 @@ const AuthProvider = ({ children }) => {
 export const useAuth = () => {
   return useContext(AuthContext);
 };
-

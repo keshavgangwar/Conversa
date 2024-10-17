@@ -6,7 +6,7 @@ const Contact = ({
   username,
   selectedUserId,
   setSelectedUserId,
-  isonline,
+  isOnline,
   avatarLink,
 }) => {
   return (
@@ -23,11 +23,11 @@ const Contact = ({
       <Avatar
         userId={userId}
         username={username}
-        isonline={isonline}
+        isonline={isOnline}
         avatarLink={avatarLink}
       />
       <span className="text-xs lg:text-base text-center">{username}</span>
-      {isonline && (
+      {isOnline && (
         <span className="text-xs rounded-full bg-green-500 px-2 py-1">
           Active
         </span>
